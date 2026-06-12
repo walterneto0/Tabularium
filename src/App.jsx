@@ -1,6 +1,6 @@
 import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
-import Header from "./components/Header"
+import Header from "./components/Header";
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -47,7 +47,6 @@ function App() {
 
   return (
     <div className="flex h-screen flex-col overflow-hidden bg-slate-100">
-      
       <Header />
 
       <main className="flex min-h-0 flex-1 p-8">
