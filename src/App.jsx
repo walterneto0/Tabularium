@@ -1,5 +1,6 @@
 import AddTask from "./components/AddTask";
 import Tasks from "./components/Tasks";
+import Header from "./components/Header"
 import { useState, useEffect } from "react";
 import { v4 as uuidv4 } from "uuid";
 
@@ -11,20 +12,6 @@ function App() {
   useEffect(() => {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
-
-  useEffect(() => {
-    const fetchTasks = async () => {
-      const response = await fetch(
-        "https://jsonplaceholder.typicode.com/todos?_limit=10",
-        { method: "GET" }
-      );
-
-      const data = await response.json();
-      console.log(data);
-    };
-
-    fetchTasks();
-  }, []);
 
   function onTaskClick(taskId) {
     const newTasks = tasks.map((task) => {
@@ -59,22 +46,17 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-slate-100">
-      <header className="bg-gradient-to-r from-slate-950 via-slate-900 to-blue-950 shadow-lg">
-        <div className="max-w-7xl mx-auto px-8 py-6">
-          <h1 className="text-5xl font-bold text-white">
-            Gerenciador de Tarefas
-          </h1>
-        </div>
-      </header>
+    <div className="flex h-screen flex-col overflow-hidden bg-slate-100">
+      
+      <Header />
 
-      <main className="max-w-7xl mx-auto p-8">
-        <div className="grid grid-cols-12 gap-8">
-          <aside className="col-span-3">
+      <main className="flex min-h-0 flex-1 p-8">
+        <div className="grid min-h-0 flex-1 grid-cols-12 gap-8">
+          <aside className="col-span-3 h-full">
             <AddTask onAddTaskSubmit={onAddTaskSubmit} />
           </aside>
 
-          <section className="col-span-9">
+          <section className="scrollbar-modern col-span-9 min-h-0 min-w-0 overflow-x-hidden overflow-y-auto pr-2">
             <Tasks
               tasks={tasks}
               onTaskClick={onTaskClick}

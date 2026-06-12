@@ -16,7 +16,7 @@ function AddTask({ onAddTaskSubmit }) {
   }
 
   return (
-    <div className="bg-white rounded-3xl border border-slate-200 shadow-lg p-8">
+    <div className="h-full bg-white rounded-3xl border border-slate-200 shadow-lg p-8">
       <div className="flex items-center gap-4 mb-8">
         <div className="w-14 h-14 rounded-2xl bg-indigo-50 flex items-center justify-center">
           <span className="text-2xl">📝</span>
